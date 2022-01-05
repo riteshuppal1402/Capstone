@@ -1,6 +1,7 @@
 import pandas as pd
 import pickle
 import torch
+import os
 import numpy as np
 import matplotlib.patches as mpatches
 # import matplotlib
@@ -148,5 +149,7 @@ def normal():
 
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    application.run(host='0.0.0.0', port=port, debug=True)
+    # application.run(debug=True)
     # application.run(host="0.0.0.0", port=80)
