@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.patches as mpatches
 # matplotlib.use('agg')
 import matplotlib
-matplotlib.use("TkAgg")
+# matplotlib.use("TkAgg")
 #matplotlib.use("agg")
 import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
