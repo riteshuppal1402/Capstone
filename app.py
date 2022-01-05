@@ -23,9 +23,6 @@ application = Flask(__name__)
 cors = CORS(application)
 x_output = np. load(r"file.npy")
 #print(len(x_output[0][0][0][0]))
-@application.route("/")
-def index():
-    return render_template("index.html")
 
 def plot_results(y_preds):
   
@@ -125,7 +122,12 @@ class PCEModule(torch.nn.Module):
         # all_features = torch.cat((all_features,inputs_to_fc), dim=1);
         output = self.fc(all_features)        
         return output
-@application.route("/", methods=["GET","POST"])
+
+
+@application.route("/")
+def index():
+    return render_template("index.html")
+@application.route("/predict", methods=["GET","POST"])
 def normal():
     if request.method == 'POST':
         data=request.form.get('date')
