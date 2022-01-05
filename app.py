@@ -10,7 +10,6 @@ import matplotlib
 # matplotlib.use("TkAgg")
 matplotlib.use("agg")
 import matplotlib.pyplot as plt
-import matplotlib.pyplot as plt
 import matplotlib as mpl
 from torch import optim
 from flask import Flask, request, jsonify
@@ -152,7 +151,4 @@ def normal():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    application.run(host='0.0.0.0', port=port, debug=True)
-    # application.run(debug=True)
-    # application.run(host="0.0.0.0", port=80)
+    application.run(debug=True)
