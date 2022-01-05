@@ -114,9 +114,6 @@
             <button class="btn_two">Model</button>
             <p>
               We propose a ten stream multi-channel convolutional neural network with single layer for multi-lane traffic speed prediction with the consideration of traffic volume impact. We design a CNN architecture with single streams, where each channel input takes total flow of their respective sensors. Convolutional layers learn the matrices to capture traffic flow features in two dimensions.Then, the output tensors of the ten streams will be flattened and concatenated into one speed-volume vector, and this vector will be learned by the fully connected (FC) layers. The proposed model is validated using loop detector data on a major freeway in the California area. The comprehensive comparisons and analyses demonstrate the strength and effectiveness of our model.
-
-
-
             </p>
             <img src="cnn.png"></img>
         </section>
@@ -124,35 +121,31 @@
     <div id="about_container" class="container" >
         
         <div onclick="closeabout()"><i class="fas fa-angle-left"></i></div>
-        <h1  >Using Multi channel CNN Model</h1>
+        <h1>Using Multi channel CNN Model</h1>
         <section>
             <h2>Get accurate Traffic flow of a day </h2>
             <p>
                 Right now our model is trained on California's dataset.So please enter date to get traffic flow.
                 Please input date and city name of California.
                 Graph shown shows Traffic flow where y-axis signifies congestion and x-axis signifies time of the day. Dip in the slope shows the preferred time to travel to avoid  jams.   
-
             </p>
 
-            <form method="POST" action="http://localhost:5000/">
+            <form method="POST" action="/">
                 <input type="date" name="date" required />
                  <select id="city" name="city">
                     <option value="Caramel">Location</option>
                     <option value="Caramel">CARAMEL RIV BRIDGE</option>
-                    
-                  </select>
+                 </select>
                 <input type="submit" value="Submit" />
             </form>
-
-            <p id="demo"></p>
+            <!-- <p id="demo"></p>
             <p id="demo1"></p>
             <p id="demo2">day</p>
             <div id="display_here"></div>
-            <img id="imgg">
-            
-
-
-
+            <img id="imgg"> -->
+            <div class="myresult" width="600" height="400">
+                {{ ans | safe }}
+            </div>
         </section>
 
     </div>

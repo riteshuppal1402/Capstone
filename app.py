@@ -1,10 +1,10 @@
 import pandas as pd
 import pickle
+import mpld3
 import torch
 import os
 import numpy as np
 import matplotlib.patches as mpatches
-# import matplotlib
 # matplotlib.use('agg')
 import matplotlib
 matplotlib.use("TkAgg")
@@ -58,9 +58,10 @@ def plot_results(y_preds):
 
     plt.legend(handles=[red_patch, blue_patch])
     
-    
-    plt.show()
-    plt.close()
+    fig1=plt.gcf()
+    html_str1=mpld3.fig_to_html(fig1)
+    return html_str1
+    # plt.close()
 class PCEModule(torch.nn.Module):
     def __init__(self, n_channels=10, n_classes=192, dropout_probability=0.2):
         super(PCEModule, self).__init__()
@@ -139,7 +140,9 @@ def normal():
         
         model=pickle.load(open('model.pkl','rb'))
         output=model(torch.Tensor(x_output))
-        return plot_results(output[67-18+day][::12].detach().numpy())
+        val=output[67-18+day][::12].detach().numpy()
+        ans=plot_results(val)
+        return render_template('index.html', ans=ans)
         
 
     return "Yippie"
