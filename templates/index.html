@@ -115,7 +115,7 @@
             <p>
               We propose a ten stream multi-channel convolutional neural network with single layer for multi-lane traffic speed prediction with the consideration of traffic volume impact. We design a CNN architecture with single streams, where each channel input takes total flow of their respective sensors. Convolutional layers learn the matrices to capture traffic flow features in two dimensions.Then, the output tensors of the ten streams will be flattened and concatenated into one speed-volume vector, and this vector will be learned by the fully connected (FC) layers. The proposed model is validated using loop detector data on a major freeway in the California area. The comprehensive comparisons and analyses demonstrate the strength and effectiveness of our model.
             </p>
-            <img src="static/cnn.png"></img>
+            <img src="{{ url_for('static',filename='cnn.png')}}"></img>
         </section>
     </div>
     <div id="about_container" class="container" >
